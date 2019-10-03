@@ -61,7 +61,7 @@ elseif(CMAKE_SYSTEM_NAME MATCHES "Linux")
 		COMMAND tcc -c ${TCC_RUNTIME_LIB_PATH}/bcheck.c -o bcheck.o -D_ANSI_SOURCE -B${CMAKE_SOURCE_DIR}/runtime
 		COMMAND tcc -c ${TCC_RUNTIME_LIB_PATH}/alloca86_64-bt.S -o alloca86_64-bt.o -D_ANSI_SOURCE -B${CMAKE_SOURCE_DIR}/runtime
 		COMMAND tcc -c ${TCC_RUNTIME_LIB_PATH}/alloca86_64.S -o alloca86_64.o -D_ANSI_SOURCE -B${CMAKE_SOURCE_DIR}/runtime
-		COMMAND tcc -ar rcs libtcc1.a libtcc1.o alloca86_64.o alloca86_64-bt.o va_list.o chkstk.o
+		COMMAND tcc -ar rcs libtcc1.a libtcc1.o alloca86_64.o alloca86_64-bt.o va_list.o  bcheck.o
 		DEPENDS tcc
 		WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 		SOURCES ${TCC_RUNTIME_LIB_SRC}
@@ -79,7 +79,7 @@ elseif(WIN32)
 		COMMAND tcc -c ${TCC_RT_WIN32_LIB_PATH}/wincrt1w.c -o wincrt1w.o -I${CMAKE_SOURCE_DIR}/runtime/include -B${CMAKE_SOURCE_DIR}/runtime/win32
 		COMMAND tcc -c ${TCC_RT_WIN32_LIB_PATH}/dllcrt1.c -o dllcrt1.o -I${CMAKE_SOURCE_DIR}/runtime/include -B${CMAKE_SOURCE_DIR}/runtime/win32
 		COMMAND tcc -c ${TCC_RT_WIN32_LIB_PATH}/dllmain.c -o dllmain.o -I${CMAKE_SOURCE_DIR}/runtime/include -B${CMAKE_SOURCE_DIR}/runtime/win32
-		COMMAND tcc -ar rcs libtcc1.a libtcc1.o alloca86_64.o alloca86_64-bt.o chkstk.o bcheck.o crt1.o crt1w.o wincrt1.o wincrt1w.o dllcrt1.o dllmain.o
+		COMMAND tcc -ar rcs libtcc1.a libtcc1.o alloca86_64.o alloca86_64-bt.o bcheck.o chkstk.o crt1.o crt1w.o wincrt1.o wincrt1w.o dllcrt1.o dllmain.o
 		COMMAND tcc -impdef libtcc -o libtcc.def
 		DEPENDS tcc libtcc
 		WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
