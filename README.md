@@ -68,3 +68,17 @@ cmake -DCMAKE_INSTALL_PREFIX=./install -G "Visual Studio 15 2017 Win64" ..
 2. 源码可分为三部分，分别是 tcc 编译器的动态库、tcc 命令、runtime 静态库
 3. Ubuntu 下编译 runtime 库可能需要安装 gcc-multilib，具体命令为`sudo apt-get install gcc-multilib`
 4. 针对 64 位 Linux 系统，使用 tcc 进行编译可能需要添加库搜索路径：`-L/usr/lib/x86_64-linux-gnu`
+
+## Windows+Cygwin 环境下操作流程
+
+1. 根据上述编译指引，生成 Visual Studio 工程并执行生成 ALL_BUILD 目标和 INSTALL 目标
+2. Cygwin 的 shell 下，执行如下命令：
+
+```bash
+cd TinyCC/runtime/win32
+make # build libtcc1.a
+make run # run demo
+make clean
+```
+
+3. 此时 tcc 的 runtime 库已经编译好并执行 demo 打印相关日志
