@@ -3,7 +3,8 @@ project(TinyCC
 	VERSION 0.9.27
 	# DESCRIPTION "Tiny C Compiler" # cmake version >= 3.9
 	# HOMEPAGE_URL "www.zhyingkun.com"
-	LANGUAGES C CXX)
+	LANGUAGES C CXX
+)
 
 message(STATUS "CMakeLists.txt for ${PROJECT_NAME}")
 message(STATUS "Current OS is ${CMAKE_SYSTEM}")
@@ -16,6 +17,8 @@ set(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH FLASE)
 # set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib") # must before add_executable
 
+add_subdirectory(libtcc)
 add_subdirectory(tcc)
+add_subdirectory(runtime)
 add_subdirectory(examples)
 add_subdirectory(demo)
