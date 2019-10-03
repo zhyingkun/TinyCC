@@ -72,7 +72,7 @@ cmake -DCMAKE_INSTALL_PREFIX=./install -G "Visual Studio 15 2017 Win64" ..
 ## Windows+Cygwin 环境下操作流程
 
 1. 根据上述编译指引，生成 Visual Studio 工程并执行生成 ALL_BUILD 目标和 INSTALL 目标
-2. Cygwin 的 shell 下，执行如下命令：
+2. Cygwin 的 shell 下，执行如下命令流程：
 
 ```bash
 cd TinyCC/runtime/win32
@@ -82,3 +82,10 @@ make clean
 ```
 
 3. 此时 tcc 的 runtime 库已经编译好并执行 demo 打印相关日志
+4. 运行其他 Demo，执行如下命令流程：
+
+```bash
+cd TinyCC/examples
+make
+# make run
+```
