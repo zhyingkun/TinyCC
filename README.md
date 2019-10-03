@@ -33,6 +33,7 @@ cmake -DCMAKE_INSTALL_PREFIX=./install -G "Xcode" ..
 cd TinyCC/
 mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=./install .. # default is Debug
+# cmake -DCMAKE_INSTALL_PREFIX=/usr/local/zyk ..
 # for Debug: cmake -DCMAKE_BUILD_TYPE=Debug ..
 # for Release: cmake -DCMAKE_BUILD_TYPE=Release ..
 make
