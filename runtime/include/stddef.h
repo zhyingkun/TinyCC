@@ -32,9 +32,9 @@ typedef unsigned long long int uint64_t;
 #define NULL ((void*)0)
 #endif
 
-#define offsetof(type, field) ((size_t)&((type *)0)->field)
+#define offsetof(type, field) ((size_t) & ((type*)0)->field)
 
-void *alloca(size_t size);
+void* alloca(size_t size);
 
 #endif
 
@@ -45,7 +45,7 @@ void *alloca(size_t size);
    already (without requiring wint_t).  Some other libs define _WINT_T
    if they've already provided that type, so we can use that as guard.
    TCC defines __WINT_TYPE__ for us.  */
-#if defined (__need_wint_t)
+#if defined(__need_wint_t)
 #ifndef _WINT_T
 #define _WINT_T
 typedef __WINT_TYPE__ wint_t;
