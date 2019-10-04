@@ -62,12 +62,16 @@ cmake -DCMAKE_INSTALL_PREFIX=./install -G "Visual Studio 15 2017 Win64" ..
 3. tcc：TinyCC 官方源码，加了注释，编译出 TinyCC 动态链接库
 4. 所有 CMakeLists.txt：用于管理整个工程
 
+---
+
 ## 问题记录
 
 1. TCC 源码编译中有一个 ONE_SOURCE 模式，需要添加编译参数-DONE_SOURCE=0，tcc.c 也需要
 2. 源码可分为三部分，分别是 tcc 编译器的动态库、tcc 命令、runtime 静态库
 3. Ubuntu 下编译 runtime 库可能需要安装 gcc-multilib，具体命令为`sudo apt-get install gcc-multilib`
 4. 针对 64 位 Linux 系统，使用 tcc 进行编译可能需要添加库搜索路径：`-L/usr/lib/x86_64-linux-gnu`
+
+---
 
 ## Windows+Cygwin 环境下操作流程
 
