@@ -22,6 +22,7 @@
 #ifdef CONFIG_TCC_ASM
 
 ST_FUNC int asm_get_local_label_name(TCCState* s1, unsigned int n) {
+  (void)s1;
   char buf[64];
   TokenSym* ts;
 
@@ -347,6 +348,7 @@ ST_FUNC int asm_int_expr(TCCState* s1) {
 }
 
 static Sym* asm_new_label1(TCCState* s1, int label, int is_local, int sh_num, int value) {
+  (void)s1;
   Sym* sym;
   ElfSym* esym;
 
@@ -400,6 +402,7 @@ static Sym* set_symbol(TCCState* s1, int label) {
 }
 
 static void use_section1(TCCState* s1, Section* sec) {
+  (void)s1;
   cur_text_section->data_offset = ind;
   cur_text_section = sec;
   ind = cur_text_section->data_offset;

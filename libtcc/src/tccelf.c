@@ -630,6 +630,7 @@ ST_FUNC void put_stabs(const char* str, int type, int other, int desc, unsigned 
 
 ST_FUNC void
 put_stabs_r(const char* str, int type, int other, int desc, unsigned long value, Section* sec, int sym_index) {
+  (void)sec;
   put_stabs(str, type, other, desc, value);
   put_elf_reloc(symtab_section, stab_section, stab_section->data_offset - sizeof(unsigned int), R_DATA_32, sym_index);
 }
@@ -1451,6 +1452,7 @@ static int layout_sections(TCCState* s1,
                            Section* strsec,
                            struct dyn_inf* dyninf,
                            int* sec_order) {
+  (void)strsec;
   int i, j, k, file_type, sh_order_index, file_offset;
   unsigned long s_align;
   long long tmp;
@@ -2639,6 +2641,7 @@ the_end:
 
 /* return next ld script token */
 static int ld_next(TCCState* s1, char* name, int name_size) {
+  (void)s1;
   int c;
   char* q;
 

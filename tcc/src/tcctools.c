@@ -66,6 +66,7 @@ static int ar_usage(int ret) {
 }
 
 ST_FUNC int tcc_tool_ar(TCCState* s1, int argc, char** argv) {
+  (void)s1;
   // clang-format off
   static ArHdr arhdr = {
     "/               ",
@@ -462,6 +463,7 @@ static int execvp_win32(const char* prog, char** argv) {
 #endif /* _WIN32 */
 
 ST_FUNC void tcc_tool_cross(TCCState* s, char** argv, int target) {
+  (void)s;
   char program[4096];
   char* a0 = argv[0];
   int prefix = tcc_basename(a0) - a0;

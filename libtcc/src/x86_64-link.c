@@ -97,6 +97,7 @@ int gotplt_entry_type(int reloc_type) {
 }
 
 ST_FUNC unsigned create_plt_entry(TCCState* s1, unsigned got_offset, struct sym_attr* attr) {
+  (void)attr;
   Section* plt = s1->plt;
   uint8_t* p;
   int modrm;

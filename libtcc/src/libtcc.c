@@ -643,6 +643,7 @@ LIBTCCAPI void tcc_define_symbol(TCCState* s1, const char* sym, const char* valu
 
 /* undefine a preprocessor symbol */
 LIBTCCAPI void tcc_undefine_symbol(TCCState* s1, const char* sym) {
+  (void)s1;
   TokenSym* ts;
   Sym* s;
   ts = tok_alloc(sym, strlen(sym));
@@ -1090,6 +1091,7 @@ ST_FUNC void tcc_add_pragma_libs(TCCState* s1) {
 }
 
 LIBTCCAPI int tcc_add_symbol(TCCState* s, const char* name, const void* val) {
+  (void)s;
 #ifdef TCC_TARGET_PE
   /* On x86_64 'val' might not be reachable with a 32bit offset.
      So it is handled here as if it were in a DLL. */
@@ -1862,6 +1864,7 @@ LIBTCCAPI void tcc_set_options(TCCState* s, const char* r) {
 }
 
 PUB_FUNC void tcc_print_stats(TCCState* s, unsigned total_time) {
+  (void)s;
   if (total_time < 1)
     total_time = 1;
   if (total_bytes < 1)

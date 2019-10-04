@@ -3573,6 +3573,7 @@ ST_FUNC void preprocess_start(TCCState* s1, int is_asm) {
 
 /* cleanup from error/setjmp */
 ST_FUNC void preprocess_end(TCCState* s1) {
+  (void)s1;
   while (macro_stack)
     end_macro();
   macro_ptr = NULL;
@@ -3619,6 +3620,7 @@ ST_FUNC void tccpp_new(TCCState* s) {
 }
 
 ST_FUNC void tccpp_delete(TCCState* s) {
+  (void)s;
   int i, n;
 
   /* free -D and compiler defines */

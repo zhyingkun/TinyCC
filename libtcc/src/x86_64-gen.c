@@ -1186,6 +1186,7 @@ ST_FUNC int classify_x86_64_va_arg(CType* ty) {
 /* Return the number of registers needed to return the struct, or 0 if
    returning via struct pointer. */
 ST_FUNC int gfunc_sret(CType* vt, int variadic, CType* ret, int* ret_align, int* regsize) {
+  (void)variadic;
   int size, align, reg_count;
   *ret_align = 1; // Never have to re-align return values for x86-64
   *regsize = 8;
@@ -2181,6 +2182,8 @@ ST_FUNC void gen_vla_result(int addr) {
 
 /* Subtract from the stack pointer, and push the resulting value onto the stack */
 ST_FUNC void gen_vla_alloc(CType* type, int align) {
+  (void)type;
+  (void)align;
 #ifdef TCC_TARGET_PE
   /* alloca does more than just adjust %rsp on Windows */
   vpush_global_sym(&func_old_type, TOK_alloca);
