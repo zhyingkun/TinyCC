@@ -1031,8 +1031,8 @@ LIBTCCAPI int tcc_add_library_path(TCCState* s, const char* pathname) {
   return 0;
 }
 
-static int
-tcc_add_library_internal(TCCState* s, const char* fmt, const char* filename, int flags, char** paths, int nb_paths) {
+static int tcc_add_library_internal(TCCState* s, const char* fmt, const char* filename, int flags, char** paths,
+                                    int nb_paths) {
   char buf[1024];
   int i;
 
@@ -1471,21 +1471,26 @@ static const FlagDef options_W[] = {
     {offsetof(TCCState, warn_error), 0, "error"},
     {offsetof(TCCState, warn_gcc_compat), 0, "gcc-compat"},
     {offsetof(TCCState, warn_implicit_function_declaration), WD_ALL, "implicit-function-declaration"},
-    {0, 0, NULL}};
+    {0, 0, NULL},
+};
 
-static const FlagDef options_f[] = {{offsetof(TCCState, char_is_unsigned), 0, "unsigned-char"},
-                                    {offsetof(TCCState, char_is_unsigned), FD_INVERT, "signed-char"},
-                                    {offsetof(TCCState, nocommon), FD_INVERT, "common"},
-                                    {offsetof(TCCState, leading_underscore), 0, "leading-underscore"},
-                                    {offsetof(TCCState, ms_extensions), 0, "ms-extensions"},
-                                    {offsetof(TCCState, dollars_in_identifiers), 0, "dollars-in-identifiers"},
-                                    {0, 0, NULL}};
+static const FlagDef options_f[] = {
+    {offsetof(TCCState, char_is_unsigned), 0, "unsigned-char"},
+    {offsetof(TCCState, char_is_unsigned), FD_INVERT, "signed-char"},
+    {offsetof(TCCState, nocommon), FD_INVERT, "common"},
+    {offsetof(TCCState, leading_underscore), 0, "leading-underscore"},
+    {offsetof(TCCState, ms_extensions), 0, "ms-extensions"},
+    {offsetof(TCCState, dollars_in_identifiers), 0, "dollars-in-identifiers"},
+    {0, 0, NULL},
+};
 
-static const FlagDef options_m[] = {{offsetof(TCCState, ms_bitfields), 0, "ms-bitfields"},
+static const FlagDef options_m[] = {
+    {offsetof(TCCState, ms_bitfields), 0, "ms-bitfields"},
 #ifdef TCC_TARGET_X86_64
-                                    {offsetof(TCCState, nosse), FD_INVERT, "sse"},
+    {offsetof(TCCState, nosse), FD_INVERT, "sse"},
 #endif
-                                    {0, 0, NULL}};
+    {0, 0, NULL},
+};
 
 static void parse_option_D(TCCState* s1, const char* optarg) {
   char* sym = tcc_strdup(optarg);
