@@ -22,7 +22,7 @@
 cd TinyCC/
 mkdir buildXcode && cd buildXcode
 cmake -DCMAKE_INSTALL_PREFIX=./install -G "Xcode" ..
-# cmake -DCMAKE_INSTALL_PREFIX=/usr/local/zyk -G "Xcode" ..
+# cmake -DCMAKE_INSTALL_PREFIX=/usr/local/zyk/tcc -G "Xcode" ..
 ```
 
 此时已经在 buildXcode 文件夹下生成了 Xcode 工程，直接打开并编译即可
@@ -33,9 +33,9 @@ cmake -DCMAKE_INSTALL_PREFIX=./install -G "Xcode" ..
 cd TinyCC/
 mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=./install .. # default is Debug
-# cmake -DCMAKE_INSTALL_PREFIX=/usr/local/zyk ..
 # for Debug: cmake -DCMAKE_BUILD_TYPE=Debug ..
 # for Release: cmake -DCMAKE_BUILD_TYPE=Release ..
+# cmake -DCMAKE_INSTALL_PREFIX=/usr/local/zyk/tcc -DCMAKE_BUILD_TYPE=Release ..
 make
 # for more details: make VERBOSE=1
 make install
@@ -49,6 +49,7 @@ make 命令会自动编译好各个模块
 cd TinyCC/
 mkdir buildVS && cd buildVS
 cmake -DCMAKE_INSTALL_PREFIX=./install -G "Visual Studio 15 2017 Win64" ..
+# cmake -DCMAKE_INSTALL_PREFIX=D:/Applications/zyk/tcc -G "Visual Studio 15 2017 Win64" ..
 ```
 
 此时已经在 buildVS 文件夹下生成了 Visual Studio 工程，双击打开并编译即可
